@@ -7,12 +7,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>WPF Localisation package</Title>
-    <Description>WPF Localisation package that allow language switching on the fly
-Support string localization and binding</Description>
+    <Description>WPF Localisation package that allow language switching on the fly. Support string localization and binding</Description>
     <PackageProjectUrl>https://github.com/niksan321/Wpf.Translation</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
 	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
 	  <RepositoryUrl>https://github.com/niksan321/Wpf.Translation</RepositoryUrl>
+	  <Authors>niksan321</Authors>
+	  <PackageTags>WPF;Localisation;Translation;Localize;Translate</PackageTags>
+	  <PackageReleaseNotes>First version</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
