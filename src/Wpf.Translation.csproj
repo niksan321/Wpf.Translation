@@ -5,6 +5,21 @@
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>WPF Localisation package</Title>
+    <Description>WPF Localisation package that allow language switching on the fly
+Support string localization and binding</Description>
+    <PackageProjectUrl>https://github.com/niksan321/Wpf.Translation</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <RepositoryUrl>https://github.com/niksan321/Wpf.Translation</RepositoryUrl>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

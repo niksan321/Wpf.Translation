@@ -1,6 +1,5 @@
 ﻿using System.Globalization;
 using System.Resources;
-using System.Transactions;
 
 namespace Wpf.Translation;
 
