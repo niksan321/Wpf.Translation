@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Diagnostics;
+using System.Globalization;
 using System.Resources;
 
 namespace Wpf.Translation;
@@ -53,7 +54,16 @@ public class TranslationManager
     public string Translate(string key, params object[] p)
     {
         var translatedValue = TranslateValue(key);
-        var result = string.IsNullOrWhiteSpace(translatedValue) ? $"!{key}!" : string.Format(translatedValue, p);
+        var translateNotFound = translatedValue == null;
+
+        var result = translateNotFound
+            ? $"!{key}!"
+            : string.Format(translatedValue, p);
+
+#if DEBUG
+        if (translateNotFound) Console.WriteLine($"Translation key: '{key}' not found");
+#endif
+
         return result;
     }
 
