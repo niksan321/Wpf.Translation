@@ -67,7 +67,7 @@ public class TranslationManager
         return result;
     }
 
-    public string TranslateValue(string key)
+    private string TranslateValue(string key)
     {
         if (key == null) return "Null";
 
