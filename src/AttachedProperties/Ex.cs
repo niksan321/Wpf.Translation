@@ -2,7 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Markup;
 
-namespace Wpf.Translation;
+namespace Wpf.Tr;
 
 public static class Ex
 {
@@ -29,7 +29,7 @@ public static class Ex
     {
         if (d is not DataGrid dg || e.NewValue == null) return;
 
-        dg.Language = XmlLanguage.GetLanguage(TranslationManager.Instance.CurrentLanguage.IetfLanguageTag);
+        dg.Language = XmlLanguage.GetLanguage(TrManager.Instance.CurrentLanguage.IetfLanguageTag);
 
         if ((bool)e.NewValue)
         {
@@ -44,7 +44,7 @@ public static class Ex
 
             if (_dataGrids.Count == 0)
             {
-                TranslationManager.Instance.LanguageChanged -= LanguageChanged;
+                TrManager.Instance.LanguageChanged -= LanguageChanged;
             }
         }
     }
@@ -56,10 +56,10 @@ public static class Ex
 
         if (_dataGrids.Count == 1)
         {
-            TranslationManager.Instance.LanguageChanged += LanguageChanged;
+            TrManager.Instance.LanguageChanged += LanguageChanged;
         }
 
-        if (dg.Language.IetfLanguageTag != TranslationManager.Instance.CurrentLanguage.IetfLanguageTag)
+        if (dg.Language.IetfLanguageTag != TrManager.Instance.CurrentLanguage.IetfLanguageTag)
         {
             ResetItemsSource(dg);
         }
@@ -71,7 +71,7 @@ public static class Ex
 
         if (_dataGrids.Count == 0)
         {
-            TranslationManager.Instance.LanguageChanged -= LanguageChanged;
+            TrManager.Instance.LanguageChanged -= LanguageChanged;
         }
     }
 
@@ -79,7 +79,7 @@ public static class Ex
     {
         foreach (var dg in _dataGrids)
         {
-            dg.Language = XmlLanguage.GetLanguage(TranslationManager.Instance.CurrentLanguage.IetfLanguageTag);
+            dg.Language = XmlLanguage.GetLanguage(TrManager.Instance.CurrentLanguage.IetfLanguageTag);
             ResetItemsSource(dg);
         }
     }

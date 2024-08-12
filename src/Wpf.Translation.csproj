@@ -16,6 +16,7 @@
 	<PackageTags>WPF;Localisation;Translation;Localize;Translate</PackageTags>
 	<PackageReleaseNotes>First version</PackageReleaseNotes>
 	<Version>1.0.0.2</Version>
+	<RootNamespace>Wpf.Tr</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

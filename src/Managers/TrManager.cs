@@ -1,10 +1,12 @@
-﻿using System.Diagnostics;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Resources;
 
-namespace Wpf.Translation;
+namespace Wpf.Tr;
 
-public class TranslationManager
+/// <summary>
+/// Translation manager
+/// </summary>
+public class TrManager
 {
     private readonly List<ResourceManager> _languageResources;
 
@@ -27,9 +29,9 @@ public class TranslationManager
         }
     }
 
-    public static TranslationManager Instance { get; private set; }
+    public static TrManager Instance { get; private set; }
 
-    public TranslationManager()
+    public TrManager()
     {
         _languageResources = new List<ResourceManager>();
         Instance = this;
@@ -60,11 +62,17 @@ public class TranslationManager
             ? $"!{key}!"
             : string.Format(translatedValue, p);
 
-#if DEBUG
-        if (translateNotFound) Console.WriteLine($"Translation key: '{key}' not found");
-#endif
-
         return result;
+    }
+
+    public void RegisterResourceManager(ResourceManager manager)
+    {
+        _languageResources.Add(manager);
+    }
+
+    public void InitSupportedLanguages(CultureInfo[] languages)
+    {
+        Languages = languages;
     }
 
     private string TranslateValue(string key)
@@ -78,15 +86,5 @@ public class TranslationManager
         }
 
         return null;
-    }
-
-    public void RegisterResourceManager(ResourceManager manager)
-    {
-        _languageResources.Add(manager);
-    }
-
-    public void InitSupportedLanguages(CultureInfo[] languages)
-    {
-        Languages = languages;
     }
 }

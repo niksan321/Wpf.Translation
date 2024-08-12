@@ -2,18 +2,21 @@
 using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Wpf.Translation;
+namespace Wpf.Tr;
 
-public class TranslateExtension : MarkupExtension
+/// <summary>
+/// Translate markup extension
+/// </summary>
+public class TrExtension : MarkupExtension
 {
     [ConstructorArgument("key")]
     public string Key { get; set; }
 
     public Binding Binding { get; set; }
 
-    public TranslateExtension() { }
+    public TrExtension() { }
 
-    public TranslateExtension(string key)
+    public TrExtension(string key)
     {
         Key = key;
     }

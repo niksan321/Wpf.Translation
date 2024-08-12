@@ -2,20 +2,23 @@
 using System.Windows;
 using System.Windows.Data;
 
-namespace Wpf.Translation;
+namespace Wpf.Tr;
 
+/// <summary>
+/// Translate converter
+/// </summary>
 [ValueConversion(typeof(string), typeof(string))]
-public class TranslateConverter : FrameworkElement, IValueConverter, IWeakEventListener, IDisposable
+public class TrConverter : FrameworkElement, IValueConverter, IWeakEventListener, IDisposable
 {
     private readonly DependencyObject _targetObject;
     private readonly DependencyProperty _targetProperty;
 
-    public TranslateConverter(DependencyObject targetObject, DependencyProperty targetProperty)
+    public TrConverter(DependencyObject targetObject, DependencyProperty targetProperty)
     {
         _targetObject = targetObject;
         _targetProperty = targetProperty;
 
-        LanguageChangedEventManager.AddListener(TranslationManager.Instance, this);
+        LanguageChangedEventManager.AddListener(TrManager.Instance, this);
     }
 
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -27,11 +30,11 @@ public class TranslateConverter : FrameworkElement, IValueConverter, IWeakEventL
         if (value is Enum enumValue)
         {
             var key = enumValue.GetTranslateKey();
-            result = TranslationManager.Instance.Translate(key ?? value.ToString(), parameter);
+            result = TrManager.Instance.Translate(key ?? value.ToString(), parameter);
         }
         else
         {
-            result = TranslationManager.Instance.Translate(value.ToString(), parameter);
+            result = TrManager.Instance.Translate(value.ToString(), parameter);
         }
 
         return string.IsNullOrWhiteSpace(result) ? DependencyProperty.UnsetValue : result;
@@ -56,7 +59,7 @@ public class TranslateConverter : FrameworkElement, IValueConverter, IWeakEventL
         expression?.UpdateTarget();
     }
 
-    ~TranslateConverter()
+    ~TrConverter()
     {
         Dispose(false);
     }
@@ -71,7 +74,7 @@ public class TranslateConverter : FrameworkElement, IValueConverter, IWeakEventL
     {
         if (disposing)
         {
-            LanguageChangedEventManager.RemoveListener(TranslationManager.Instance, this);
+            LanguageChangedEventManager.RemoveListener(TrManager.Instance, this);
         }
     }
 }

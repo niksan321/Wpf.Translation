@@ -1,7 +1,7 @@
 ﻿using System.Windows.Data;
 using System.Windows.Markup;
 
-namespace Wpf.Translation;
+namespace Wpf.Tr;
 
 [ValueConversion(typeof(Enum), typeof(IEnumerable<EnumDisplayName>))]
 public class EnumToItemsSource : MarkupExtension

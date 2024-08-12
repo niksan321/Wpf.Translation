@@ -1,4 +1,4 @@
-﻿namespace Wpf.Translation;
+﻿namespace Wpf.Tr;
 
 public static class EnumExtensions
 {
@@ -6,8 +6,8 @@ public static class EnumExtensions
     {
         var attribute = value.GetType()
             .GetField(value.ToString())!
-            .GetCustomAttributes(typeof(LocalizeAttribute), false)
-            .Cast<LocalizeAttribute>()
+            .GetCustomAttributes(typeof(TrAttribute), false)
+            .Cast<TrAttribute>()
             .SingleOrDefault();
 
         return attribute?.Key;

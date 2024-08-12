@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Data;
 
-namespace Wpf.Translation;
+namespace Wpf.Tr;
 
 public static class ServiceProviderExtensions
 {
@@ -13,7 +13,7 @@ public static class ServiceProviderExtensions
         {
             Source = key,
             Mode = BindingMode.OneWay,
-            Converter = new TranslateConverter(targetObject, targetProperty)
+            Converter = new TrConverter(targetObject, targetProperty)
         };
 
         return bindingToString.ProvideValue(serviceProvider);
@@ -30,7 +30,7 @@ public static class ServiceProviderExtensions
 
         Key.Mode = BindingMode.OneWay;
         Key.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-        Key.Converter = new TranslateConverter(targetObject, targetProperty);
+        Key.Converter = new TrConverter(targetObject, targetProperty);
 
         if (isSealed) fieldInfo.SetValue(Key, true);
 

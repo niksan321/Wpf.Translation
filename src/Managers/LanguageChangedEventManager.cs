@@ -1,15 +1,15 @@
 ﻿using System.Windows;
 
-namespace Wpf.Translation;
+namespace Wpf.Tr;
 
 public class LanguageChangedEventManager : WeakEventManager
 {
-    public static void AddListener(TranslationManager source, IWeakEventListener listener)
+    public static void AddListener(TrManager source, IWeakEventListener listener)
     {
         CurrentManager.ProtectedAddListener(source, listener);
     }
 
-    public static void RemoveListener(TranslationManager source, IWeakEventListener listener)
+    public static void RemoveListener(TrManager source, IWeakEventListener listener)
     {
         CurrentManager.ProtectedRemoveListener(source, listener);
     }
@@ -21,13 +21,13 @@ public class LanguageChangedEventManager : WeakEventManager
 
     protected override void StartListening(object source)
     {
-        var manager = (TranslationManager)source;
+        var manager = (TrManager)source;
         manager.LanguageChanged += OnLanguageChanged;
     }
 
     protected override void StopListening(object source)
     {
-        var manager = (TranslationManager)source;
+        var manager = (TrManager)source;
         manager.LanguageChanged -= OnLanguageChanged;
     }
 
