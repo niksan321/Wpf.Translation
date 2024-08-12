@@ -15,7 +15,7 @@
 	<Authors>$(Authors)</Authors>
 	<PackageTags>WPF;Localisation;Translation;Localize;Translate</PackageTags>
 	<PackageReleaseNotes>First version</PackageReleaseNotes>
-	<Version>1.0.0.1</Version>
+	<Version>1.0.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

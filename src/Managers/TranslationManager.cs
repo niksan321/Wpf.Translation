@@ -18,7 +18,7 @@ public class TranslationManager
         get => _currentLanguage;
         set
         {
-            if (!Equals(Thread.CurrentThread.CurrentUICulture, value))
+            if (!Equals(_currentLanguage, value))
             {
                 _currentLanguage = value;
                 Thread.CurrentThread.CurrentUICulture = value;
