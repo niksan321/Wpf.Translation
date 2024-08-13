@@ -29,7 +29,7 @@ public static class Ex
     {
         if (d is not DataGrid dg || e.NewValue == null) return;
 
-        dg.Language = XmlLanguage.GetLanguage(TranslateManager.Instance.CurrentLanguage.IetfLanguageTag);
+        dg.Language = XmlLanguage.GetLanguage(TranslateManager.Instance.CurrentLanguage?.IetfLanguageTag ?? "en-US");
 
         if ((bool)e.NewValue)
         {
@@ -59,7 +59,7 @@ public static class Ex
             TranslateManager.Instance.LanguageChanged += LanguageChanged;
         }
 
-        if (dg.Language.IetfLanguageTag != TranslateManager.Instance.CurrentLanguage.IetfLanguageTag)
+        if (dg.Language.IetfLanguageTag != TranslateManager.Instance.CurrentLanguage?.IetfLanguageTag)
         {
             ResetItemsSource(dg);
         }

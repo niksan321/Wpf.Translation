@@ -56,13 +56,24 @@ public class TranslateManager
     public string Translate(string key, params object[] p)
     {
         var translatedValue = TranslateValue(key);
-        var translateNotFound = translatedValue == null;
+        if (translatedValue != null)
+        {
+            try
+            {
+                return string.Format(translatedValue, p);
+            }
+            catch (FormatException)
+            {
+                throw new FormatException(@$"
+                    Format exception occur. 
+                    Check localized string and number of given parameters.
+                    key=`{key}`
+                    str=`{translatedValue}`,
+                    params=`{p.ParamsToString()}`");
+            }
+        }
 
-        var result = translateNotFound
-            ? $"!{key}!"
-            : string.Format(translatedValue, p);
-
-        return result;
+        return $"!{key}!";
     }
 
     public void RegisterResourceManager(ResourceManager manager)

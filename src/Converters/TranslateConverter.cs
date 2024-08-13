@@ -26,15 +26,20 @@ public class TranslateConverter : FrameworkElement, IValueConverter, IWeakEventL
         if (value == null) { return DependencyProperty.UnsetValue; }
 
         string result;
+        string key = null;
 
         if (value is Enum enumValue)
         {
-            var key = enumValue.GetTranslateKey();
-            result = TranslateManager.Instance.Translate(key ?? value.ToString(), parameter);
+            key = enumValue.GetTranslateKey();
+        }
+
+        if (parameter is Array arr)
+        {
+            result = TranslateManager.Instance.Translate(key ?? value.ToString(), arr.Cast<object>().ToArray());
         }
         else
         {
-            result = TranslateManager.Instance.Translate(value.ToString(), parameter);
+            result = TranslateManager.Instance.Translate(key ?? value.ToString(), parameter);
         }
 
         return string.IsNullOrWhiteSpace(result) ? DependencyProperty.UnsetValue : result;

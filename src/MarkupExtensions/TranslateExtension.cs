@@ -9,10 +9,31 @@ namespace Wpf.Tr;
 /// </summary>
 public class TranslateExtension : MarkupExtension
 {
+    /// <summary>
+    /// Localization key
+    /// </summary>
     [ConstructorArgument("key")]
     public string Key { get; set; }
 
+    /// <summary>
+    /// Localization binding to key property
+    /// </summary>
     public Binding Binding { get; set; }
+
+    /// <summary>
+    /// Localization parameter 1
+    /// </summary>
+    public object P1 { get; set; }
+
+    /// <summary>
+    /// Localization parameter 2
+    /// </summary>
+    public object P2 { get; set; }
+
+    /// <summary>
+    /// Localization parameter 3
+    /// </summary>
+    public object P3 { get; set; }
 
     public TranslateExtension() { }
 
@@ -43,8 +64,8 @@ public class TranslateExtension : MarkupExtension
             //if (DesignerProperties.GetIsInDesignMode(InternalTarget)) return InternalFallbackValue;
 
             return Key == null
-                ? serviceProvider.ProvideLocalizedValue(targetObject, targetProperty, Binding)
-                : serviceProvider.ProvideLocalizedValue(targetObject, targetProperty, Key);
+                ? serviceProvider.ProvideLocalizedValue(targetObject, targetProperty, Binding, P1, P2, P3)
+                : serviceProvider.ProvideLocalizedValue(targetObject, targetProperty, Key, P1, P2, P3);
         }
 
         return this;

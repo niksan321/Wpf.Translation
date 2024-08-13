@@ -7,33 +7,37 @@ namespace Wpf.Tr;
 public static class ServiceProviderExtensions
 {
     public static object ProvideLocalizedValue(this IServiceProvider serviceProvider, DependencyObject targetObject,
-        DependencyProperty targetProperty, string key)
+        DependencyProperty targetProperty, string key, params object[] p)
     {
         var bindingToString = new Binding
         {
             Source = key,
             Mode = BindingMode.OneWay,
+            ConverterParameter = p,
             Converter = new TranslateConverter(targetObject, targetProperty)
         };
 
         return bindingToString.ProvideValue(serviceProvider);
     }
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S3011:Reflection should not be used",
+        Justification = "to update sealed binding properties")]
     public static object ProvideLocalizedValue(this IServiceProvider serviceProvider, DependencyObject targetObject,
-        DependencyProperty targetProperty, Binding Key)
+        DependencyProperty targetProperty, Binding key, params object[] p)
     {
         var fieldInfo = typeof(BindingBase).GetField("_isSealed", BindingFlags.NonPublic | BindingFlags.Instance);
-        var isSealed = (bool)fieldInfo!.GetValue(Key)!;
+        var isSealed = (bool)fieldInfo!.GetValue(key)!;
 
         //hack to update sealed binding properties
-        if (isSealed) fieldInfo.SetValue(Key, false);
+        if (isSealed) fieldInfo.SetValue(key, false);
 
-        Key.Mode = BindingMode.OneWay;
-        Key.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-        Key.Converter = new TranslateConverter(targetObject, targetProperty);
+        key.Mode = BindingMode.OneWay;
+        key.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
+        key.ConverterParameter = p;
+        key.Converter = new TranslateConverter(targetObject, targetProperty);
 
-        if (isSealed) fieldInfo.SetValue(Key, true);
+        if (isSealed) fieldInfo.SetValue(key, true);
 
-        return Key.ProvideValue(serviceProvider);
+        return key.ProvideValue(serviceProvider);
     }
 }
