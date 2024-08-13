@@ -6,19 +6,19 @@ namespace Wpf.Tr;
 
 public static class Ex
 {
-    #region LocalizedProperty
+    #region TranslateProperty
 
-    public static readonly DependencyProperty LocalizedProperty = DependencyProperty.RegisterAttached(
-        "Localized", typeof(bool), typeof(Ex), new PropertyMetadata(false, PropertyChangedCallback));
+    public static readonly DependencyProperty TranslateProperty = DependencyProperty.RegisterAttached(
+        "Translate", typeof(bool), typeof(Ex), new PropertyMetadata(false, PropertyChangedCallback));
 
-    public static void SetLocalized(DependencyObject element, bool value)
+    public static void SetTranslate(DependencyObject element, bool value)
     {
-        element.SetValue(LocalizedProperty, value);
+        element.SetValue(TranslateProperty, value);
     }
 
-    public static bool GetLocalized(DependencyObject element)
+    public static bool GetTranslate(DependencyObject element)
     {
-        return (bool)element.GetValue(LocalizedProperty);
+        return (bool)element.GetValue(TranslateProperty);
     }
 
     #endregion
@@ -29,7 +29,7 @@ public static class Ex
     {
         if (d is not DataGrid dg || e.NewValue == null) return;
 
-        dg.Language = XmlLanguage.GetLanguage(TrManager.Instance.CurrentLanguage.IetfLanguageTag);
+        dg.Language = XmlLanguage.GetLanguage(TranslateManager.Instance.CurrentLanguage.IetfLanguageTag);
 
         if ((bool)e.NewValue)
         {
@@ -44,7 +44,7 @@ public static class Ex
 
             if (_dataGrids.Count == 0)
             {
-                TrManager.Instance.LanguageChanged -= LanguageChanged;
+                TranslateManager.Instance.LanguageChanged -= LanguageChanged;
             }
         }
     }
@@ -56,10 +56,10 @@ public static class Ex
 
         if (_dataGrids.Count == 1)
         {
-            TrManager.Instance.LanguageChanged += LanguageChanged;
+            TranslateManager.Instance.LanguageChanged += LanguageChanged;
         }
 
-        if (dg.Language.IetfLanguageTag != TrManager.Instance.CurrentLanguage.IetfLanguageTag)
+        if (dg.Language.IetfLanguageTag != TranslateManager.Instance.CurrentLanguage.IetfLanguageTag)
         {
             ResetItemsSource(dg);
         }
@@ -71,7 +71,7 @@ public static class Ex
 
         if (_dataGrids.Count == 0)
         {
-            TrManager.Instance.LanguageChanged -= LanguageChanged;
+            TranslateManager.Instance.LanguageChanged -= LanguageChanged;
         }
     }
 
@@ -79,7 +79,7 @@ public static class Ex
     {
         foreach (var dg in _dataGrids)
         {
-            dg.Language = XmlLanguage.GetLanguage(TrManager.Instance.CurrentLanguage.IetfLanguageTag);
+            dg.Language = XmlLanguage.GetLanguage(TranslateManager.Instance.CurrentLanguage.IetfLanguageTag);
             ResetItemsSource(dg);
         }
     }

@@ -13,7 +13,7 @@ public static class ServiceProviderExtensions
         {
             Source = key,
             Mode = BindingMode.OneWay,
-            Converter = new TrConverter(targetObject, targetProperty)
+            Converter = new TranslateConverter(targetObject, targetProperty)
         };
 
         return bindingToString.ProvideValue(serviceProvider);
@@ -30,7 +30,7 @@ public static class ServiceProviderExtensions
 
         Key.Mode = BindingMode.OneWay;
         Key.UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged;
-        Key.Converter = new TrConverter(targetObject, targetProperty);
+        Key.Converter = new TranslateConverter(targetObject, targetProperty);
 
         if (isSealed) fieldInfo.SetValue(Key, true);
 

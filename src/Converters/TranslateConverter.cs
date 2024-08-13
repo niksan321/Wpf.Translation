@@ -8,17 +8,17 @@ namespace Wpf.Tr;
 /// Translate converter
 /// </summary>
 [ValueConversion(typeof(string), typeof(string))]
-public class TrConverter : FrameworkElement, IValueConverter, IWeakEventListener, IDisposable
+public class TranslateConverter : FrameworkElement, IValueConverter, IWeakEventListener, IDisposable
 {
     private readonly DependencyObject _targetObject;
     private readonly DependencyProperty _targetProperty;
 
-    public TrConverter(DependencyObject targetObject, DependencyProperty targetProperty)
+    public TranslateConverter(DependencyObject targetObject, DependencyProperty targetProperty)
     {
         _targetObject = targetObject;
         _targetProperty = targetProperty;
 
-        LanguageChangedEventManager.AddListener(TrManager.Instance, this);
+        LanguageChangedEventManager.AddListener(TranslateManager.Instance, this);
     }
 
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -30,11 +30,11 @@ public class TrConverter : FrameworkElement, IValueConverter, IWeakEventListener
         if (value is Enum enumValue)
         {
             var key = enumValue.GetTranslateKey();
-            result = TrManager.Instance.Translate(key ?? value.ToString(), parameter);
+            result = TranslateManager.Instance.Translate(key ?? value.ToString(), parameter);
         }
         else
         {
-            result = TrManager.Instance.Translate(value.ToString(), parameter);
+            result = TranslateManager.Instance.Translate(value.ToString(), parameter);
         }
 
         return string.IsNullOrWhiteSpace(result) ? DependencyProperty.UnsetValue : result;
@@ -59,7 +59,7 @@ public class TrConverter : FrameworkElement, IValueConverter, IWeakEventListener
         expression?.UpdateTarget();
     }
 
-    ~TrConverter()
+    ~TranslateConverter()
     {
         Dispose(false);
     }
@@ -74,7 +74,7 @@ public class TrConverter : FrameworkElement, IValueConverter, IWeakEventListener
     {
         if (disposing)
         {
-            LanguageChangedEventManager.RemoveListener(TrManager.Instance, this);
+            LanguageChangedEventManager.RemoveListener(TranslateManager.Instance, this);
         }
     }
 }

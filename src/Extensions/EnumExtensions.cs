@@ -6,8 +6,8 @@ public static class EnumExtensions
     {
         var attribute = value.GetType()
             .GetField(value.ToString())!
-            .GetCustomAttributes(typeof(TrAttribute), false)
-            .Cast<TrAttribute>()
+            .GetCustomAttributes(typeof(TranslateAttribute), false)
+            .Cast<TranslateAttribute>()
             .SingleOrDefault();
 
         return attribute?.Key;

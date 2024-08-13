@@ -6,7 +6,7 @@ namespace Wpf.Tr;
 /// <summary>
 /// Translation manager
 /// </summary>
-public class TrManager
+public class TranslateManager
 {
     private readonly List<ResourceManager> _languageResources;
 
@@ -29,9 +29,9 @@ public class TrManager
         }
     }
 
-    public static TrManager Instance { get; private set; }
+    public static TranslateManager Instance { get; private set; }
 
-    public TrManager()
+    public TranslateManager()
     {
         _languageResources = new List<ResourceManager>();
         Instance = this;

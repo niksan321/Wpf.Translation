@@ -7,16 +7,16 @@ namespace Wpf.Tr;
 /// <summary>
 /// Translate markup extension
 /// </summary>
-public class TrExtension : MarkupExtension
+public class TranslateExtension : MarkupExtension
 {
     [ConstructorArgument("key")]
     public string Key { get; set; }
 
     public Binding Binding { get; set; }
 
-    public TrExtension() { }
+    public TranslateExtension() { }
 
-    public TrExtension(string key)
+    public TranslateExtension(string key)
     {
         Key = key;
     }

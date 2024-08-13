@@ -4,7 +4,7 @@ using System.Windows.Markup;
 namespace Wpf.Tr;
 
 [ValueConversion(typeof(Enum), typeof(IEnumerable<EnumDisplayName>))]
-public class EnumToItemsSource : MarkupExtension
+public class EnumToCollectionConverter : MarkupExtension
 {
     public class EnumDisplayName
     {
@@ -14,7 +14,7 @@ public class EnumToItemsSource : MarkupExtension
 
     private readonly Type _type;
 
-    public EnumToItemsSource(Type type)
+    public EnumToCollectionConverter(Type type)
     {
         _type = type;
     }
