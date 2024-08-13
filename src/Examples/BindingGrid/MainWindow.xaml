@@ -1,0 +1,84 @@
+﻿<Window
+    x:Class="BindingGrid.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tr="clr-namespace:Wpf.Tr;assembly=Wpf.Translation"
+    Title="{tr:Translate MainWindow}"
+    Width="800"
+    Height="380"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="Height" Value="40" />
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Border Padding="16">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <DataGrid
+                Name="TargetListDataGrid"
+                Grid.Row="0"
+                tr:Ex.Translate="True"
+                AutoGenerateColumns="False"
+                IsReadOnly="True"
+                ItemsSource="{Binding Targets}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Id}" Header="{tr:Translate Id}" />
+
+                    <DataGridTemplateColumn Header="{tr:Translate Type}">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Padding="8" Text="{tr:Translate Binding={Binding Type}}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Binding="{Binding Data}" Header="{tr:Translate KeyNotExistsInLanguageDictionary}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <DockPanel Grid.Row="1">
+                <Label VerticalContentAlignment="Center" Content="{tr:Translate ShowDeletePrompt}" />
+                <CheckBox
+                    Width="auto"
+                    Height="40"
+                    HorizontalAlignment="Left"
+                    VerticalContentAlignment="Center"
+                    IsChecked="True" />
+            </DockPanel>
+
+            <DockPanel Grid.Row="2">
+                <Label VerticalContentAlignment="Center" Content="{tr:Translate LocalizedByCodeContentTitle}" />
+                <Label Name="LocalizedByCodeLabel" VerticalContentAlignment="Center" />
+            </DockPanel>
+
+            <DockPanel Grid.Row="3">
+                <Label VerticalContentAlignment="Center" Content="{tr:Translate LocalizedWithParamsTitle}" />
+                <Label VerticalContentAlignment="Center" Content="{tr:Translate LocalizedWithParamsContent, P1=Id, P2=1533, P3=Rambo}" />
+            </DockPanel>
+
+            <Button
+                Grid.Row="4"
+                Width="160"
+                Height="40"
+                Click="ButtonBase_OnClick"
+                Content="{tr:Translate SwitchToLang}" />
+
+        </Grid>
+    </Border>
+</Window>

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<TargetFrameworks>net7.0-windows;net6.0-windows</TargetFrameworks>
+	<TargetFrameworks>net8.0-windows;net7.0-windows;net6.0-windows</TargetFrameworks>
 	<Nullable>disable</Nullable>
 	<UseWPF>true</UseWPF>
 	<ImplicitUsings>enable</ImplicitUsings>
@@ -14,13 +14,13 @@
 	<RepositoryUrl>https://github.com/niksan321/Wpf.Translation</RepositoryUrl>
 	<Authors>$(Authors)</Authors>
 	<PackageTags>WPF;Localisation;Translation;Localize;Translate</PackageTags>
-	<PackageReleaseNotes>First version</PackageReleaseNotes>
-	<Version>1.0.0.5</Version>
+	<PackageReleaseNotes>Stabilization</PackageReleaseNotes>
+	<Version>1.0.0.6</Version>
 	<RootNamespace>Wpf.Tr</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README.md">
+    <None Include="..\..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

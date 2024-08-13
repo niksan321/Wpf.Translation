@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BindingGrid", "BindingGrid.csproj", "{0FBA94D5-B38C-4816-955E-078ED3513D48}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf.Translation", "..\..\..\..\..\gitlab\Wpf.Translation\src\Wpf.Translation.csproj", "{61FF17AD-DEC9-43D9-81A3-DCDEAC8EA836}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0FBA94D5-B38C-4816-955E-078ED3513D48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FBA94D5-B38C-4816-955E-078ED3513D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FBA94D5-B38C-4816-955E-078ED3513D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FBA94D5-B38C-4816-955E-078ED3513D48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61FF17AD-DEC9-43D9-81A3-DCDEAC8EA836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61FF17AD-DEC9-43D9-81A3-DCDEAC8EA836}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61FF17AD-DEC9-43D9-81A3-DCDEAC8EA836}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61FF17AD-DEC9-43D9-81A3-DCDEAC8EA836}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC7EA399-F7F2-405D-A8B9-6F573068C173}
+	EndGlobalSection
+EndGlobal
