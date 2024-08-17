@@ -23,10 +23,11 @@
 `Title="{tr:Translate MainWindow}"`
 3. Use binding (Type contains languaje key)
 `Text="{tr:Translate Binding={Binding Type}}"`
-4. To use binding with data greed column use AttachedProperty
-`<DataGrid tr:Ex.Translate="True">`
-And add binding:
-`<DataGridTemplateColumn Header="{tr:Translate Type}">
+4. To use binding with data grid column:
+4.1. add AttachedProperty to data grid
+- `<DataGrid tr:Ex.Translate="True">`
+4.2. And add binding:
+- `<DataGridTemplateColumn Header="{tr:Translate Type}">
     <DataGridTemplateColumn.CellTemplate>
         <DataTemplate>
             <StackPanel>
@@ -39,6 +40,7 @@ And add binding:
 ## Use in code
 Localized string in resource file Langs.resx:
 - `LocalizedByCodeContent` = `Localized by code content. Param 1 = {0}, Param 2 = {1}, Param 3 = {2}`
+Use in code
 - `LocalizedByCodeLabel.Content = _translateManager.Translate("LocalizedByCodeContent", 111, "Костик", "Bar");`
 
 ## Switch language
