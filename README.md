@@ -38,8 +38,8 @@ And add binding:
 
 ## Use in code
 Localized string in resource file Langs.resx:
-`LocalizedByCodeContent` = `Localized by code content. Param 1 = {0}, Param 2 = {1}, Param 3 = {2}`
-`LocalizedByCodeLabel.Content = _translateManager.Translate("LocalizedByCodeContent", 111, "Костик", "Bar");`
+- `LocalizedByCodeContent` = `Localized by code content. Param 1 = {0}, Param 2 = {1}, Param 3 = {2}`
+- `LocalizedByCodeLabel.Content = _translateManager.Translate("LocalizedByCodeContent", 111, "Костик", "Bar");`
 
 ## Switch language
 `var lang = TranslateManager.Languages.First();`
