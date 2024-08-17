@@ -15,7 +15,7 @@
 	<Authors>$(Authors)</Authors>
 	<PackageTags>WPF;Localisation;Translation;Localize;Translate</PackageTags>
 	<PackageReleaseNotes>Stabilization</PackageReleaseNotes>
-	<Version>1.0.0.6</Version>
+	<Version>1.0.0.7</Version>
 	<RootNamespace>Wpf.Tr</RootNamespace>
   </PropertyGroup>
 
