@@ -26,8 +26,7 @@
 4. To use binding with data greed column- use AttachedProperty
 `tr:Ex.Translate="True"`
 And add binding:
-<code>
-<DataGridTemplateColumn Header="{tr:Translate Type}">
+`<DataGridTemplateColumn Header="{tr:Translate Type}">
     <DataGridTemplateColumn.CellTemplate>
         <DataTemplate>
             <StackPanel>
@@ -35,21 +34,16 @@ And add binding:
             </StackPanel>
         </DataTemplate>
     </DataGridTemplateColumn.CellTemplate>
-</DataGridTemplateColumn>
-<code>
+</DataGridTemplateColumn>`
 
 ## Use in code
 Localized string in resource file Langs.resx:
-`LocalizedByCodeContent` = `Localized by code content. Param 1 = {0}, Param 2 = {1}, Param 3 = {2}
-`
-
+`LocalizedByCodeContent` = `Localized by code content. Param 1 = {0}, Param 2 = {1}, Param 3 = {2}`
 `LocalizedByCodeLabel.Content = _translateManager.Translate("LocalizedByCodeContent", 111, "Костик", "Bar");`
 
 ## Switch language
-`var lang = TranslateManager.Languages.First();
-_translateManager.CurrentLanguage = lang;`
-
-
+`var lang = TranslateManager.Languages.First();`
+`_translateManager.CurrentLanguage = lang;`
 
 # Todo
 - Binding converter parameters
