@@ -50,3 +50,7 @@
 # Todo
 - Binding converter parameters
 - Add Interfaces
+
+## More examples
+- see Examples folder
+- see [TryPinger repo](https://gitlab.com/niksan321/TrayPinger) 
