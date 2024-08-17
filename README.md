@@ -23,8 +23,8 @@
 `Title="{tr:Translate MainWindow}"`
 3. Use binding (Type contains languaje key)
 `Text="{tr:Translate Binding={Binding Type}}"`
-4. To use binding with data greed column- use AttachedProperty
-`tr:Ex.Translate="True"`
+4. To use binding with data greed column use AttachedProperty
+`<DataGrid tr:Ex.Translate="True">`
 And add binding:
 `<DataGridTemplateColumn Header="{tr:Translate Type}">
     <DataGridTemplateColumn.CellTemplate>
