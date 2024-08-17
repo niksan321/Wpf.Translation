@@ -28,7 +28,6 @@ public partial class MainWindow : Window
     private TranslateManager InitTranslateManager()
     {
         var manager = new TranslateManager();
-
         var langs = new CultureInfo[]
         {
             new("ru-RU"),
