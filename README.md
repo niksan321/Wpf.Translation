@@ -38,9 +38,9 @@
 </DataGridTemplateColumn>`
 
 ## Use in code
-Localized string in resource file Langs.resx:
+1. Localized string in resource file Langs.resx:
 - `LocalizedByCodeContent` = `Localized by code content. Param 1 = {0}, Param 2 = {1}, Param 3 = {2}`
-Use in code
+2. Use in code
 - `LocalizedByCodeLabel.Content = _translateManager.Translate("LocalizedByCodeContent", 111, "Костик", "Bar");`
 
 ## Switch language
