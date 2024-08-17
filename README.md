@@ -24,9 +24,9 @@
 3. Use binding (Type contains languaje key)
 `Text="{tr:Translate Binding={Binding Type}}"`
 4. To use binding with data grid column:
-4.1. add AttachedProperty to data grid
+- Add AttachedProperty to data grid
 - `<DataGrid tr:Ex.Translate="True">`
-4.2. And add binding:
+- And add binding:
 - `<DataGridTemplateColumn Header="{tr:Translate Type}">
     <DataGridTemplateColumn.CellTemplate>
         <DataTemplate>
