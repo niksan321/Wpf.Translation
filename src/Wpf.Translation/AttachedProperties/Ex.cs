@@ -38,9 +38,12 @@ public static class Ex
         }
         else
         {
-            dg.Loaded -= DataGrid_Loaded;
-            dg.Unloaded -= DataGrid_Unloaded;
-            _dataGrids.Remove(dg);
+            if (_dataGrids.Contains(dg))
+            {
+                dg.Loaded -= DataGrid_Loaded;
+                dg.Unloaded -= DataGrid_Unloaded;
+                _dataGrids.Remove(dg);
+            }
 
             if (_dataGrids.Count == 0)
             {
